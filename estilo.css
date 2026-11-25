@@ -1,0 +1,184 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+    background-color: rgb(255, 249, 179);;
+    color: #B98951;
+}
+
+/* Camada de fundo para não pesar o scroll em alguns browsers */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url("imagens/castelo.png");
+  background-position: center bottom;
+  background-size: cover; 
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+/* Garante que o conteúdo principal fica legível ao centro */
+.conteudo-site {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+header,
+footer {
+    background-color: #211323;
+    color: #B98951;
+}
+
+.nome-site {
+    font-family: Georgia, serif;
+    font-size: 28px;
+}
+
+.banner {
+    background: #211323;
+    padding: 65px 15px;
+    margin-top: 25px;
+    border-radius: 8px;
+    color: #B98951;
+    border: 1px solid #B98951;
+}
+
+.banner h2 {
+    font-family: Georgia, serif;
+    font-size: 36px;
+}
+
+aside h5
+{
+    text-align: center;
+}
+aside {
+    background-color: #211323;
+    padding: 15px;
+    border-radius: 8px;
+    height: fit-content;
+    color: #B98951;
+    border: 1px solid #B98951;
+}
+
+.categoria {
+    display: block;
+    width: 100%;
+    border: none;
+    background: transparent;
+    text-align: left;
+    padding: 7px;
+    color: #B98951;
+}
+
+.categoria:hover {
+    cursor: pointer;
+    background-color: #B98951;
+    color:  #211323;
+    border-radius: 5px;
+}
+
+.card-livro {
+    background:#211323ad;
+    border: 1px solid #B98951;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 20px;
+    height: 100%;
+}
+
+.card-autores, .card-universos {
+    background:#211323;
+    border: 1px solid 	#B98951;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 20px;
+    height: 100%;
+}
+
+.card-livro img {
+    width: 100%;
+    height: 230px;
+    object-fit: contain;
+}
+
+.card-livro h5 {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.preco {
+    text-align: center;
+    /* border: 2px dashed #B98951; */
+    color: #B98951;
+    padding: 2px;
+}
+
+.autor img,
+.universo img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.autor,
+.universo {
+    margin-bottom: 15px;
+}
+
+.formulario {
+    background: #DAD7C9;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.botao {
+    background: #583D59;
+    color: white;
+}
+
+.botao:hover {
+    background: #B98951;
+    color: white;
+}
+
+.botao-livro
+{
+    border: 1px solid #B98951;
+    color: #B98951;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.botao-favorito
+{
+    border: 1px solid #B98951;
+    color: #B98951;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.botao-livro:hover
+{
+    cursor: pointer;
+    background-color: #B98951;
+    color:  #211323;
+} 
+
+.botao-favorito:hover
+{
+    cursor: pointer;
+    background-color: #B98951;
+    color:  #211323;
+} 
+
+@media (max-width: 767px) {
+    .banner h2 {
+        font-size: 28px;
+    }
+}

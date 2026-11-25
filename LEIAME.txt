@@ -1,0 +1,16 @@
+========================================
+          LEIAME - PROJETO
+========================================
+
+1. TÍTULO DO PROJETO
+Estante Fantástica.
+
+2. EQUIPE
+- Maria Isabel Arantes da Silva
+
+(1) Abra o arquivo index.html no navegador;
+(2) Localize a opção de Entrar na página;
+(3) Preencha os campos solicitados (nome, e-mail e senha);
+(4) Clique no botão "Cadastrar";
+(5) Verifique se a mensagem de confirmação de cadastro aparece na tela;
+(6) Se a mensagem aparecer, significa que o cadastro foi realizado com sucesso.
