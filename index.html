@@ -16,15 +16,24 @@
 </div> -->
     <header>
         <div class="container">
-            <div class="row align-items-center py-4">
-                <div class="col-md-4">
+            <div class="container-header row align-items-center py-4">
+                <div class="col-md-3">
                     <h1 class="nome-site">Estante Fantástica</h1>
                 </div>
-                <div class="col-md-5 my-2"><input type="search" id="pesquisa" class="form-control"
-                        placeholder="O que você está procurando?"></div>
-                <div class="col-md-3 text-md-end"><span id="usuario"></span> <a href="login.html" id="link-login"
-                        class="btn btn-light btn-sm">Entrar</a><button id="sair" class="btn btn-light btn-sm"
-                        hidden>Sair</button></div>
+                <div class="col-md-1 px-1">
+                    <a href="favoritos.html" class="barra-favoritos btn d-flex justify-content-center align-items-center"> 
+                        Favoritos 
+                        <i class="bi bi-heart"></i>
+                    </a>
+                </div>
+                <div class="col-md-5 my-2">
+                    <input type="search" id="pesquisa" class="form-control" placeholder="O que você está procurando?">
+                </div>
+                <div class="col-md-3 text-md-end">
+                    <span id="usuario"></span>
+                    <a href="login.html" id="link-login" class="btn btn-sm">Entrar</a>
+                    <button id="sair" class="btn btn-sm" hidden>Sair</button>
+                </div>
             </div>
         </div>
     </header>
@@ -36,7 +45,8 @@
         </section>
         <div class="row mt-4">
             <aside class="col-md-2">
-                <h5>── Categorias ──</h5>
+                <h5>Categorias</h5>
+                <hr>
                 <button class="categoria" data-categoria="Todas">Todas</button>
                 <button class="categoria" data-categoria="Fantasia">Fantasia</button>
                 <button class="categoria" data-categoria="Ficção Científica">Ficção Científica</button>

@@ -17,7 +17,7 @@ const livros = [
     { nome: "Kindred Laços de Sangue", imagem: "imagens/kindred.jpg", categoria: "Ficção Científica", preco: "──── ⟡ R$ 78,90 ⟡ ────" },
     { nome: "Feiticeiro de Terramar - Livro 1", imagem: "imagens/feiticeiro_terramar.jpg", categoria: "Fantasia", preco: "──── ⟡ R$ 78,90 ⟡ ────" },
     { nome: "A Guerra dos Tronos: As Crônicas de Gelo e Fogo - Livro 1", imagem: "imagens/cronicas_gelo_fogo.jpg", categoria: "Fantasia", preco: "──── ⟡ R$ 78,90 ⟡ ────" },
-    { nome: "Elantris", imagem: "imagens/elantris.jpg", categoria: "Fantasia", preco: "R$ 78,90" },
+    { nome: "Elantris", imagem: "imagens/elantris.jpg", categoria: "Fantasia", preco: "──── ⟡ R$ 78,90 ⟡ ────" },
     { nome: "Warbreaker: O sopro dos Deuses", imagem: "imagens/warbreaker_sopro_dos_deuses.jpg", categoria: "Fantasia", preco: "──── ⟡ R$ 78,90 ⟡ ────" },
     { nome: "Tress A Garota do Mar Esmeralda", imagem: "imagens/tress.jpg", categoria: "Fantasia", preco: "──── ⟡ R$ 78,90 ⟡ ────" },
     { nome: "Yumi e o Pintor de Pesadelos", imagem: "imagens/yumi_pintor.jpg", categoria: "Fantasia", preco: "──── ⟡ R$ 78,90 ⟡ ────" },
@@ -35,18 +35,94 @@ function mostrarLivros(lista) {
 
     lista.forEach(function (livro) {
         
-        area.innerHTML += `<div class="col-12 col-sm-6 col-lg-4 col-xl-3"><div class="card-livro">
+        area.innerHTML += `<div class="col-12 col-sm-6 col-lg-4 col-xl-3 g-4"><div class="card-livro">
         <img src="${livro.imagem}" alt="Capa de ${livro.nome}">
         <h5>${livro.nome}</h5><p>${livro.categoria}</p><p class="preco">${livro.preco}</p>
         <div class = "row justify-content-around">
-            <div class="botao-livro col-12 col-sm-6 col-lg-5">Comprar <i class="bi bi-cart3"></i></div>
-            <div class="botao-favorito col-12 col-sm-6 col-lg-5">Favoritar <i class="bi bi-heart"></i></div>
+            <div class="col-12 col-sm-6 col-lg-6"><a href="realizar-compra.html" class="btn botao-livro" 
+            onclick="selecionarLivro(${livros.indexOf(livro)})">Comprar <i class="bi bi-cart3"></a></i></div>
+            <div class="col-12 col-sm-6 col-lg-6" onclick="selecionarLivroFavorito(${livros.indexOf(livro)})">
+                <a class="botao-favorito btn"> Favoritar <i class="bi bi-heart"></i></a>
+            </div>
         </div>
         </div></div>`;
     });
     document.getElementById("aviso").hidden = lista.length > 0;
 }
 mostrarLivros(livros);
+
+// Seleciona o livro que o usuário deseja comprar.
+function selecionarLivro(indice) {
+    localStorage.setItem("livroSelecionado", JSON.stringify(livros[indice]));
+}
+
+// Seleciona o livro que o usuário deseja favoritar.
+function selecionarLivroFavorito(indice) {
+    let favoritos = JSON.parse(localStorage.getItem("livrosFavoritos")) || [];
+
+    const existe = favoritos.some(function(livro) {
+        alert("Livro já adicionado aos favoritos!");
+        return livro.nome === livros[indice].nome;
+    });
+
+    if (!existe) {
+        favoritos.push(livros[indice]);
+        localStorage.setItem("livrosFavoritos", JSON.stringify(favoritos));
+        alert("Livro adicionado aos favoritos!");
+    }
+}
+
+// Mostra o livro selecionado na página de compra
+function mostrarLivroCompra() {
+    const area = document.getElementById("card-compra");
+
+    if (!area) return;
+
+    const livro = JSON.parse(localStorage.getItem("livroSelecionado"));
+
+    if (!livro) {
+        area.innerHTML = "<p>Nenhum livro selecionado.</p>";
+        return;
+    }
+
+    area.innerHTML = `
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 g-4">
+            <div class="card-livro">
+                <img src="${livro.imagem}" alt="Capa de ${livro.nome}">
+                <h5>${livro.nome}</h5>
+                <p>${livro.categoria}</p>
+                <p class="preco">${livro.preco}</p>
+            </div>
+        </div>
+    `;
+}
+mostrarLivroCompra();
+
+function mostrarLivroFavorito() {
+    const area = document.getElementById("card-favorito");
+
+    if (!area) return;
+
+    const favoritos = JSON.parse(localStorage.getItem("livrosFavoritos")) || [];
+
+    area.innerHTML = "";
+
+    favoritos.forEach(function(livro) {
+        area.innerHTML += `
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 g-4">
+                <div class="card-favorito">
+                    <img src="${livro.imagem}" alt="Capa de ${livro.nome}">
+                    <h5>${livro.nome}</h5>
+                    <p>${livro.categoria}</p>
+                    <p class="preco">${livro.preco}</p>
+                </div>
+            </div>
+        `;
+    });
+
+    document.getElementById("aviso").hidden = lista.length > 0;
+}
+mostrarLivroFavorito();
 
 // Pesquisa pelo nome do livro.
 const pesquisa = document.getElementById("pesquisa");

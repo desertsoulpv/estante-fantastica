@@ -37,6 +37,16 @@ footer {
     font-size: 28px;
 }
 
+.barra-favoritos:hover
+{
+    cursor: pointer;
+    border: 1px solid #B98951;
+    color:  #B98951;
+    padding: 7px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
 .banner {
     background: #211323;
     padding: 65px 15px;
@@ -55,6 +65,7 @@ aside h5
 {
     text-align: center;
 }
+
 aside {
     background-color: #211323;
     padding: 15px;
@@ -83,12 +94,13 @@ aside {
 
 .card-livro {
     background:#211323ad;
+    backdrop-filter: blur(5px);
     border: 1px solid #B98951;
     border-radius: 8px;
     padding: 12px;
     margin-bottom: 20px;
     height: 100%;
-}
+}   
 
 .card-autores, .card-universos {
     background:#211323;
@@ -112,7 +124,6 @@ aside {
 
 .preco {
     text-align: center;
-    /* border: 2px dashed #B98951; */
     color: #B98951;
     padding: 2px;
 }
@@ -132,7 +143,9 @@ aside {
 }
 
 .formulario {
-    background: #DAD7C9;
+    background:#211323ad;
+    backdrop-filter: blur(5px);
+    border: 1px solid #B98951;
     padding: 25px;
     border-radius: 8px;
 }
@@ -176,6 +189,32 @@ aside {
     background-color: #B98951;
     color:  #211323;
 } 
+
+.btn
+{
+    border: 1px solid #B98951;
+    color: #B98951;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.btn:hover
+{
+    cursor: pointer;
+    background-color: #B98951;
+    color:  #211323;
+}
+
+#pesquisa
+{
+    border: none;
+    background-color: #B98951;
+}
+
+#pesquisa::placeholder
+{
+    color: #211323;
+}
 
 @media (max-width: 767px) {
     .banner h2 {
